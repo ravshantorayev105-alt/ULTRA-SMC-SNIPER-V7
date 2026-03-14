@@ -1,9 +1,9 @@
 import requests
 import pandas as pd
 
-def get_data(symbol,tf,key):
+def get_data(symbol, tf, key):
 
-    url=f"https://api.twelvedata.com/time_series?symbol={symbol}&interval={tf}&apikey={key}&outputsize=200"
+    url=f"https://api.twelvedata.com/time_series?symbol={symbol}&interval={tf}&apikey={key}&outputsize=100"
 
     r=requests.get(url).json()
 
