@@ -3,7 +3,5 @@ CHAT_ID = "-1003553191341"
 API_KEY = "83b2a224d0cb46f5be157a749b2a9d75"
 
 PAIRS = [
-"BTC/USD",
-"XAU/USD",
-"NAS100"
-]
+    "BTC/USD",
+    "XAU/USD"
