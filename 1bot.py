@@ -19,19 +19,22 @@ async def main():
 
         for pair in PAIRS:
 
-            df = get_data(pair, "5min", API_KEY)
+            df = get_data(pair,"5min",API_KEY)
 
-            lq = liquidity(df)
+            signal = liquidity(df)
+
+            if signal is None:
+                continue
 
             price = df.close.iloc[-1]
 
-            sl, tp = calc(price)
+            sl,tp = calc(price)
 
-            text = f"""
+            text=f"""
 ULTRA SMC SNIPER V7
 
 PAIR: {pair}
-TYPE: {lq}
+TYPE: {signal}
 
 ENTRY: {price}
 SL: {sl}
