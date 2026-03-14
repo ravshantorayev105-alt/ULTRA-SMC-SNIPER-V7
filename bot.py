@@ -1,33 +1,16 @@
-import asyncio
-from telegram import Bot
-from config import TOKEN, CHAT_ID
+df = get_data(pair,"5min",API_KEY)
 
-bot = Bot(token=TOKEN)
+price = df.close.iloc[-1]
 
-async def send_signal(text):
-    await bot.send_message(
-        chat_id=CHAT_ID,
-        text=text
-    )
+sl,tp = calc(price)
 
-async def main():
+text=f"""
+ULTRA SMC SNIPER
 
-    while True:
+PAIR: {pair}
+TYPE: {lq}
 
-        text = """
-ULTRA SMC SNIPER V7
-
-PAIR: BTC/USD
-TYPE: BUY
-
-ENTRY: 65000
-SL: 64500
-TP: 66500
-RR: 1:3
+ENTRY: {price}
+SL: {sl}
+TP: {tp}
 """
-
-        await send_signal(text)
-
-        await asyncio.sleep(300)  # 5 minut
-
-asyncio.run(main())
